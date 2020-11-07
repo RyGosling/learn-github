@@ -3,7 +3,8 @@ package main
 import (
 	"log"
 	"os"
-	"test/learn-github/poker"
+
+	"github.com/RyGosling/learn-github/poker"
 )
 
 const dbFileName = "game.db.json"
@@ -11,7 +12,7 @@ const dbFileName = "game.db.json"
 func main() {
 	store, err := poker.FileSystemStoreFromFile(dbFileName)
 	if err != nil {
-		log.Fatalf(err)
+		log.Fatal(err)
 	}
 	game := poker.NewCLI(store, os.Stdin)
 	game.PlayPoker()
